@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홍길동 - 포트폴리오</title>
+    
+    <style>
+        /* 전체 설정 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #D4E6F1;  /* 파스텔 파란색 배경 */
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        
+        /* 전체 컨테이너 */
+        .wrapper {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        /* ============ 상단 프로필 섹션 ============ */
+        .header {
+            background-color: #ffffff;
+            border-radius: 20px;
+            padding: 50px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 프로필 사진 */
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #AED6F1;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+        }
+        
+        h1 {
+            color: #2E86C1;
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        
+        .subtitle {
+            color: #5DADE2;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        
+        .bio {
+            color: #34495E;
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+        
+        /* 정보 항목 */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            background-color: #EBF5FB;
+            padding: 12px;
+            border-radius: 10px;
+            color: #2E86C1;
+            font-size: 13px;
+        }
+        
+        .info-label {
+            font-weight: bold;
+            color: #1F618D;
+        }
+        
+        /* 연락처 버튼 */
+        .contact-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            background-color: #AED6F1;
+            color: #2E86C1;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #85C1E2;
+            transform: scale(1.05);
+        }
+        
+        /* ============ 섹션 제목 ============ */
+        .section-title {
+            color: #2E86C1;
+            font-size: 24px;
+            margin-bottom: 20px;
+            margin-top: 30px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #AED6F1;
+        }
+        
+        /* ============ 기술 스택 섹션 ============ */
+        .skills-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category {
+            margin-bottom: 20px;
+        }
+        
+        .skill-category-title {
+            color: #1F618D;
+            font-weight: bold;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        /* 스킬 태그들 */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .skill-tag {
+            background-color: #AED6F1;
+            color: #2E86C1;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* ============ 포트폴리오 프로젝트 섹션 ============ */
+        .portfolio-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* 프로젝트 카드 */
+        .project-card {
+            border: 2px solid #AED6F1;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+        
+        /* 마우스 올렸을 때 카드가 변함 */
+        .project-card:hover {
+            background-color: #EBF5FB;
+            border-color: #5DADE2;
+            transform: translateY(-5px);  /* 위로 떠오르는 효과 */
+        }
+        
+        .project-title {
+            color: #2E86C1;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        
+        .project-period {
+            color: #85C1E2;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+        
+        .project-description {
+            color: #34495E;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        /* 기술 스택 태그 */
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+        
+        .tech-tag {
+            background-color: #AED6F1;
+            color: #2E86C1;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        
+        /* ============ 반응형 (휴대폰 대응) ============ */
+        @media (max-width: 600px) {
+            .header {
+                padding: 30px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .skills-container,
+            .portfolio-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        
+        <!-- ============ 프로필 섹션 ============ -->
+        <div class="header">
+            <div class="profile-img">👨‍💻</div>
+            
+            <h1>홍길동</h1>
+            <p class="subtitle">풀스택 웹 개발자 | 디자이너</p>
+            
+            <p class="bio">
+                안녕하세요! 저는 깔끔한 코드와 아름다운 디자인을 만드는 것을 좋아합니다. 
+                새로운 기술을 배우고 팀과 협력하는 것을 즐겨요! 🚀
+            </p>
+            
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="info-label">📍 위치:</span><br> 서울, 대한민국
+                </div>
+                <div class="info-item">
+                    <span class="info-label">📧 이메일:</span><br> hello@example.com
+                </div>
+                <div class="info-item">
+                    <span class="info-label">💼 경력:</span><br> 2년
+                </div>
+                <div class="info-item">
+                    <span class="info-label">🎓 학력:</span><br> OO대학교 졸업
+                </div>
+            </div>
+            
+            <div class="contact-buttons">
+                <button class="btn">📧 이메일</button>
+                <button class="btn">🔗 GitHub</button>
+                <button class="btn">💼 LinkedIn</button>
+                <button class="btn">🌐 블로그</button>
+            </div>
+        </div>
+        
+        <!-- ============ 기술 스택 섹션 ============ -->
+        <div class="skills-container">
+            <h2 class="section-title">🛠️ 기술 스택</h2>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">프론트엔드</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Vue.js</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">백엔드</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">Python</span>
+                    <span class="skill-tag">MongoDB</span>
+                    <span class="skill-tag">MySQL</span>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <div class="skill-category-title">도구 & 기타</div>
+                <div class="skill-tags">
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">VS Code</span>
+                    <span class="skill-tag">Photoshop</span>
+                </div>
+            </div>
+        </div>
+        
+        <!-- ============ 포트폴리오 프로젝트 섹션 ============ -->
+        <div class="portfolio-container">
+            <h2 class="section-title">💼 포트폴리오</h2>
+            
+            <!-- 프로젝트 1 -->
+            <div class="project-card">
+                <div class="project-title">🎨 온라인 쇼핑몰 웹사이트</div>
+                <div class="project-period">2023년 5월 - 7월</div>
+                <div class="project-description">
+                    상품 조회, 장바구니, 결제 기능이 포함된 풀스택 전자상거래 웹사이트입니다. 
+                    사용자 인증, 상품 필터링, 결제 시스템을 구현했어요.
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">React</span>
+                    <span class="tech-tag">Node.js</span>
+                    <span class="tech-tag">MongoDB</span>
+                    <span class="tech-tag">Stripe API</span>
+                </div>
+            </div>
+            
+            <!-- 프로젝트 2 -->
+            <div class="project-card">
+                <div class="project-title">📱 투두 리스트 앱</div>
+                <div class="project-period">2023년 3월 - 4월</div>
+                <div class="project-description">
+                    일정 관리를 위한 모바일 친화적인 웹 앱입니다. 
+                    실시간 저장, 카테고리 분류, 알림 기능 등을 포함하고 있어요.
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">Vue.js</span>
+                    <span class="tech-tag">Firebase</span>
+                    <span class="tech-tag">CSS Grid</span>
+                </div>
+            </div>
+            
+            <!-- 프로젝트 3 -->
+            <div class="project-card">
+                <div class="project-title">🎬 영화 추천 웹사이트</div>
+                <div class="project-period">2023년 1월 - 2월</div>
+                <div class="project-description">
+                    TMDB API를 활용해 최신 영화 정보를 보여주고 사용자가 평점을 남길 수 있는 사이트입니다. 
+                    검색 기능과 필터링 기능이 있어요.
+                </div>
+                <div class="tech-tags">
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">REST API</span>
+                    <span class="tech-tag">HTML/CSS</span>
+                </div>
+            </div>
+            
+        </div>
+        
+    </div>
+</body>
+
+</html>
